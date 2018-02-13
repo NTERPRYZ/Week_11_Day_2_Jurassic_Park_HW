@@ -3,18 +3,18 @@ const Dinosaur = require ("../dinosaur.js")
 
 describe("Dinosaur", function(){
 
-  let trex;
+  let dinosaur1;
 
   beforeEach(function(){
-    trex = new Dinosaur("Tyrannosaurus", 2);
+    dinosaur1 = new Dinosaur("Tyrannosaurus", 2);
   });
 
   it("should have a type", function(){
-    assert.strictEqual(trex.type, "Tyrannosaurus")
+    assert.strictEqual(dinosaur1.type, "Tyrannosaurus")
   });
 
   it("should have yearly offspring", function(){
-    assert.strictEqual(trex.offspringPerYear, 2);
+    assert.strictEqual(dinosaur1.offspringPerYear, 2);
   });
 
 });

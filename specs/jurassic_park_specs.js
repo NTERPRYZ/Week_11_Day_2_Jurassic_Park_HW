@@ -4,13 +4,13 @@ const Dinosaur = require("../dinosaur.js")
 
 describe ("enclosure", function(){
   let enclosure;
-  let trex;
-  let tri
+  let dinosaur1;
+  let dinosaur2
 
   beforeEach(function(){
     enclosure = new JurassicPark();
-    trex = new Dinosaur("Tyrannosaurus", 2);
-    tri = new Dinosaur("Triceratops", 5);
+    dinosaur1 = new Dinosaur("Tyrannosaurus", 2);
+    dinosaur2 = new Dinosaur("Triceratops", 5);
   });
 
   it("should start of empty", function(){
@@ -18,15 +18,28 @@ describe ("enclosure", function(){
   });
 
   it("should take in dinosaurs", function(){
-      enclosure.addDinosaur(trex);
+      enclosure.addDinosaur(dinosaur1);
       assert.strictEqual(enclosure.herd.length, 1)
     })
 
+  it("should find dinosaur by id", function(){
+    enclosure.addDinosaur(dinosaur1);
+    enclosure.addDinosaur(dinosaur2);
+    assert.strictEqual( enclosure.findDinosaurByType("Triceratops"), 1);
+  })
+
   it("should be able to remove dinosaurs", function(){
-      enclosure.addDinosaur(trex);
-      enclosure.addDinosaur(tri);
-      enclosure.removeDinosaur(trex);
-      assert.strictEqual(enclosure.herd.length, 1)
+      enclosure.addDinosaur(dinosaur1);
+      enclosure.addDinosaur(dinosaur2);
+      assert.strictEqual(enclosure.removeDinosaurByType("Triceratops"), 1)
+  })
+
+
+
+  it("should get dinosaur types with offspring more than 2", function(){
+    enclosure.addDinosaur(dinosaur1);
+    enclosure.addDinosaur(dinosaur2);
+    assert.strictEqual(enclosure.offspringMoreThan2(), 1)
   })
 
 });
