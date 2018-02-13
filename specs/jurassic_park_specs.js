@@ -15,4 +15,9 @@ describe ("enclosure", function(){
     assert.deepStrictEqual(enclosure.herd, []);
   });
 
+  it("should take in dinosaurs", function(){
+      enclosure.addDinosaur(trex);
+      assert.strictEqual(enclosure.herd.length, 1)
+    })
+
 });
